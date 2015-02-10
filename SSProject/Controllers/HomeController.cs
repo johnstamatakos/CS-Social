@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +11,7 @@ namespace SSProject.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.UserId = User.Identity.GetUserId();
             return View();
         }
 

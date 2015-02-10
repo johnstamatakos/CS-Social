@@ -38,32 +38,32 @@ namespace SSProject.Controllers
 
         // GET: Friends/Create
         //Issue with friendID being null
-        //Do opposites for other friend
         //set status to request/pending for validation
         public ActionResult Create(string friendId)
         {
             var userId = User.Identity.GetUserId();
-            db.UserRelationships.Add(new UserRelationship { UserId = userId, FriendId = friendId, Status = "Accepted"});
+            db.UserRelationships.Add(new UserRelationship { UserId = userId, FriendId = friendId, Status = "Accepted", AcceptedDate = DateTime.Now});
+            db.UserRelationships.Add(new UserRelationship { UserId = friendId, FriendId = userId, Status = "Accepted", AcceptedDate = DateTime.Now });
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         //// POST: Friends/Create
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "UserId,FriendId,Status,AcceptedDate,RelationshipId")] UserRelationship userRelationship)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.UserRelationships.Add(userRelationship);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "UserId,FriendId,Status,AcceptedDate,RelationshipId")] UserRelationship userRelationship)
+        {
+            if (ModelState.IsValid)
+            {
+                db.UserRelationships.Add(userRelationship);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-        //    return View(userRelationship);
-        //}
+            return View(userRelationship);
+        }
 
 
 
