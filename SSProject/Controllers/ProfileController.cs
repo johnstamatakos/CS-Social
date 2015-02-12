@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SSProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace SSProject.Controllers
 {
@@ -78,13 +79,14 @@ namespace SSProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AspNetUser aspNetUser)
+        public ActionResult Edit([Bind(Include = "Id,Email,Computer, ComputerOS, ProgrammingL, PhoneM, PhoneOS, JobTitle, EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AspNetUser aspNetUser)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(aspNetUser).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                var user = User.Identity.GetUserId();
+                return RedirectToAction("Details/" + user);
             }
             return View(aspNetUser);
         }

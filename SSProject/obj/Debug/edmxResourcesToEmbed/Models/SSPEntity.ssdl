@@ -60,12 +60,12 @@
     <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
     <Property Name="AccessFailedCount" Type="int" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
-    <Property Name="Computer" Type="nvarchar" MaxLength="50" />
-    <Property Name="ComputerOS" Type="nvarchar" MaxLength="50" />
-    <Property Name="ProgrammingL" Type="nvarchar" MaxLength="50" />
-    <Property Name="PhoneM" Type="nvarchar" MaxLength="50" />
-    <Property Name="PhoneOS" Type="nvarchar" MaxLength="50" />
-    <Property Name="JobTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Computer" Type="text" />
+    <Property Name="ComputerOS" Type="text" />
+    <Property Name="ProgrammingL" Type="text" />
+    <Property Name="PhoneM" Type="text" />
+    <Property Name="PhoneOS" Type="text" />
+    <Property Name="JobTitle" Type="text" />
   </EntityType>
   <EntityType Name="Post">
     <Key>
