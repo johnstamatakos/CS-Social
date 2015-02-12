@@ -35,6 +35,12 @@ namespace SSProject.Models
         public bool LockoutEnabled { get; set; }
         public int AccessFailedCount { get; set; }
         public string UserName { get; set; }
+        public string Computer { get; set; }
+        public string ComputerOS { get; set; }
+        public string ProgrammingL { get; set; }
+        public string PhoneM { get; set; }
+        public string PhoneOS { get; set; }
+        public string JobTitle { get; set; }
     
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }

@@ -13,11 +13,16 @@ namespace SSProject.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        private SSPEntity db = new SSPEntity();
+
+        
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
         public ManageController()
         {
+            
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -214,6 +219,12 @@ namespace SSProject.Controllers
         //
         // GET: /Manage/ChangePassword
         public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        // GET: /Manage/ChangeInformation
+        public ActionResult ChangeInformation()
         {
             return View();
         }

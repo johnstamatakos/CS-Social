@@ -41,6 +41,12 @@
     <EntitySetMapping Name="AspNetUsers">
       <EntityTypeMapping TypeName="SSPModel.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="PhoneOS" ColumnName="PhoneOS" />
+          <ScalarProperty Name="PhoneM" ColumnName="PhoneM" />
+          <ScalarProperty Name="ProgrammingL" ColumnName="ProgrammingL" />
+          <ScalarProperty Name="ComputerOS" ColumnName="ComputerOS" />
+          <ScalarProperty Name="Computer" ColumnName="Computer" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
