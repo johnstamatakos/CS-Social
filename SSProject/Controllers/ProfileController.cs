@@ -128,7 +128,14 @@ namespace SSProject.Controllers
 
         public ActionResult getFriendsList()
         {
-            return PartialView("_friendsPartial");
+            var usersId = User.Identity.GetUserId();
+
+            var friends =(from user in db.AspNetUsers
+                       join relation in db.UserRelationships on user.Id equals relation.UserId
+                       where relation.UserId == usersId
+                       select relation.AspNetUser).ToList();
+
+            return PartialView("_friendsPartial", friends);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SSProject.Models.UserRelationship>
+﻿@model IEnumerable<SSProject.Models.AspNetUser>
 @using Microsoft.AspNet.Identity;
 
 <h2>Friends</h2>
@@ -8,36 +8,33 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RelationshipId)
+            @Html.DisplayNameFor(model => model.Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserId)
+            @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FriendId)
+            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        if (item.UserId == User.Identity.GetUserId())
-        {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RelationshipId)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserId)
+                @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FriendId)
+                @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.ActionLink("Remove Friend", "Delete", new { Controller = "Friends", Id = item.RelationshipId }, null) |
+                @Html.ActionLink("Remove Friend", "Delete", new { Controller = "Friends", Id = item.Id }, null) |
             </td>
         </tr>
-        }
     }
 
 </table>
