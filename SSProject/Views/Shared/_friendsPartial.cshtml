@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SSProject.Models.UserRelationship>
+@using Microsoft.AspNet.Identity;
+
+<h2>Friends</h2>
+
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RelationshipId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FriendId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.UserId == User.Identity.GetUserId())
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RelationshipId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FriendId)
+            </td>
+            <td>
+                @Html.ActionLink("Remove Friend", "Delete", new { Controller = "Friends", Id = item.RelationshipId }, null) |
+            </td>
+        </tr>
+        }
+    }
+
+</table>

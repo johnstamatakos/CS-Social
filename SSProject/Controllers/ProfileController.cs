@@ -125,5 +125,10 @@ namespace SSProject.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult getFriendsList()
+        {
+            return PartialView("_friendsPartial");
+        }
     }
 }
