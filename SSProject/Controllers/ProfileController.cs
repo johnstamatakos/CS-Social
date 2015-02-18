@@ -1,4 +1,5 @@
 ﻿using System;
+using Facebook;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -24,6 +25,7 @@ namespace SSProject.Controllers
         // GET: Profile/Details/5
         public ActionResult Details(string id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -33,6 +35,9 @@ namespace SSProject.Controllers
             {
                 return HttpNotFound();
             }
+
+            var userId = aspNetUser.Id;
+            setFacebookItems(userId);
             return View(aspNetUser);
         }
 
@@ -55,7 +60,8 @@ namespace SSProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            var userId = User.Identity.GetUserId();
+            setFacebookItems(userId);
             return View(aspNetUser);
         }
 
@@ -137,5 +143,80 @@ namespace SSProject.Controllers
 
             return PartialView("_friendsPartial", friends);
         }
+
+        private void setFacebookItems(string userId)
+        {
+
+            //Lets try and get that FB photo!
+            try
+            {
+
+                //select the users provider key
+                string fbProviderKey = (from login in db.AspNetUserLogins
+                                        where login.UserId == userId
+                                        && login.LoginProvider == "Facebook"
+                                        select login.ProviderKey).FirstOrDefault();
+
+                if (fbProviderKey != null)
+                {
+                    //setup facebook connection
+                    var accessToken = "f0a8c2cd46408aa8f65a58c4db910505";
+                    var client = new FacebookClient(accessToken);
+
+                    //Get the users facebook info and photo
+                    //dynamic me = client.Get(fbProviderKey);
+                    //ViewBag.FacebookClient = me;
+                    ViewBag.ProfilePicture = "https://graph.facebook.com/" + fbProviderKey + "/picture?type=large";
+                }
+                else
+                {
+                    ViewBag.ProfilePicture = "/Content/images/profilePictures/default.jpg";
+                }
+
+            }
+
+            finally
+            {
+            }
+
+        }
+
+        private string setProfilePicture(string userId)
+        {
+
+            //Lets try and get that FB photo!
+            try
+            {
+
+                //select the users provider key
+                string fbProviderKey = (from login in db.AspNetUserLogins
+                                        where login.UserId == userId
+                                        && login.LoginProvider == "Facebook"
+                                        select login.ProviderKey).FirstOrDefault();
+
+                if (fbProviderKey != null)
+                {
+                    //setup facebook connection
+                    var accessToken = "f0a8c2cd46408aa8f65a58c4db910505";
+                    var client = new FacebookClient(accessToken);
+
+                    //Get the users facebook info and photo
+                    //dynamic me = client.Get(fbProviderKey);
+                    //ViewBag.FacebookClient = me;
+                    return "https://graph.facebook.com/" + fbProviderKey + "/picture?type=small";
+                }
+                else
+                {
+                    return "/Content/images/profilePictures/default.jpg";
+                }
+
+            }
+
+            finally
+            {
+            }
+
+        }
+
     }
 }

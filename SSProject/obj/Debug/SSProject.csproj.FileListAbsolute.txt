@@ -218,3 +218,5 @@ C:\Users\stamatj\Documents\SSProject\SSProject\bin\Microsoft.Owin.Security.Micro
 C:\Users\stamatj\Documents\SSProject\SSProject\obj\Debug\SSProject.csprojResolveAssemblyReference.cache
 C:\Users\stamatj\Documents\SSProject\SSProject\obj\Debug\SSProject.dll
 C:\Users\stamatj\Documents\SSProject\SSProject\obj\Debug\SSProject.pdb
+C:\Users\stamatj\Documents\SSProject\SSProject\bin\Facebook.dll
+C:\Users\stamatj\Documents\SSProject\SSProject\bin\Facebook.xml
