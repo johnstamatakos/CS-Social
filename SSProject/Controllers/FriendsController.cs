@@ -45,7 +45,7 @@ namespace SSProject.Controllers
             db.UserRelationships.Add(new UserRelationship { UserId = userId, FriendId = friendId, Status = "Accepted", AcceptedDate = DateTime.Now});
             db.UserRelationships.Add(new UserRelationship { UserId = friendId, FriendId = userId, Status = "Accepted", AcceptedDate = DateTime.Now });
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Profile", new { id = User.Identity.GetUserId() });
         }
 
         //// POST: Friends/Create

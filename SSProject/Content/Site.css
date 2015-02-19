@@ -22,3 +22,43 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.userImage {
+    height:100px;
+    border-radius:50%;
+}
+
+.userImageSmall {
+    height:40px;
+    border-radius:50%;
+}
+    .rotate:hover {
+        -webkit-animation: profilePictureSpin 1s linear 0s infinite normal;
+        -moz-animation: profilePictureSpin 1s linear 0s infinite normal;
+        -ms-animation: profilePictureSpin 1s linear 0s infinite normal;
+        -o-animation: profilePictureSpin 1s linear 0s infinite normal;
+        animation: profilePictureSpin 1s linear 0s infinite normal;
+    }
+
+@-webkit-keyframes profilePictureSpin {
+  0%   { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes profilePictureSpin {
+  0%   { -moz-transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); }
+}
+@-o-keyframes profilePictureSpin {
+  0%   { -o-transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); }
+}
+@-ms-keyframes profilePictureSpin {
+  0%   { -ms-transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); }
+}
+@keyframes profilePictureSpin {
+  0%   { transform:rotate(0deg); }
+  100% { transform:rotate(360deg); }
+}
+
+

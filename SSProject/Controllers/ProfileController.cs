@@ -35,8 +35,7 @@ namespace SSProject.Controllers
             {
                 return HttpNotFound();
             }
-
-            var userId = aspNetUser.Id;
+            var userId = User.Identity.GetUserId();
             setFacebookItems(userId);
             return View(aspNetUser);
         }
@@ -60,6 +59,7 @@ namespace SSProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             var userId = User.Identity.GetUserId();
             setFacebookItems(userId);
             return View(aspNetUser);
@@ -157,6 +157,10 @@ namespace SSProject.Controllers
                                         && login.LoginProvider == "Facebook"
                                         select login.ProviderKey).FirstOrDefault();
 
+                var userRecord = (from user in db.AspNetUsers
+                                  where userId == user.Id
+                                  select user).FirstOrDefault();
+
                 if (fbProviderKey != null)
                 {
                     //setup facebook connection
@@ -166,11 +170,18 @@ namespace SSProject.Controllers
                     //Get the users facebook info and photo
                     //dynamic me = client.Get(fbProviderKey);
                     //ViewBag.FacebookClient = me;
-                    ViewBag.ProfilePicture = "https://graph.facebook.com/" + fbProviderKey + "/picture?type=large";
+                    var profilePictureString = "https://graph.facebook.com/" + fbProviderKey + "/picture?type=large";
+                   
+                    userRecord.ProfilePicture = profilePictureString;
+                    db.SaveChanges();
+                    
+                    
                 }
                 else
                 {
-                    ViewBag.ProfilePicture = "/Content/images/profilePictures/default.jpg";
+                    var profilePictureString = "/Content/images/profilePictures/default.jpg";
+                    userRecord.ProfilePicture = profilePictureString;
+                    db.SaveChanges();
                 }
 
             }
@@ -184,7 +195,6 @@ namespace SSProject.Controllers
         private string setProfilePicture(string userId)
         {
 
-            //Lets try and get that FB photo!
             try
             {
 

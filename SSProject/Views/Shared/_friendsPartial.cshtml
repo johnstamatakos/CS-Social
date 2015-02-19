@@ -26,7 +26,7 @@
     {
         <tr>
             <td>
-
+                <a href="/profile/details/@item.Id"><img class="rotate userImageSmall" src="@item.ProfilePicture" /></a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
@@ -38,8 +38,7 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.ActionLink("Remove Friend", "Delete", new { Controller = "Friends", Id = item.Id }, null) |
-                @Html.ActionLink("View Profile", "Details", new { Controller = "Profile", Id = item.Id }, null)
+                @Html.ActionLink("Remove Friend", "Delete", new { Controller = "Friends", Id = item.Id }, null)
             </td>
         </tr>
     }

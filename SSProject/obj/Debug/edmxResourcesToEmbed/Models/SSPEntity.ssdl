@@ -66,6 +66,7 @@
     <Property Name="PhoneM" Type="text" />
     <Property Name="PhoneOS" Type="text" />
     <Property Name="JobTitle" Type="text" />
+    <Property Name="ProfilePicture" Type="text" />
   </EntityType>
   <EntityType Name="Post">
     <Key>

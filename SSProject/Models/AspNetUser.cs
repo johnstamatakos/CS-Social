@@ -41,6 +41,7 @@ namespace SSProject.Models
         public string PhoneM { get; set; }
         public string PhoneOS { get; set; }
         public string JobTitle { get; set; }
+        public string ProfilePicture { get; set; }
     
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
