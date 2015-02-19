@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SSProject.Models.Post>
+@using Microsoft.AspNet.Identity;
+
+<h2>Posts</h2>
+
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            Picture
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Receiver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Receiver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poster)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { Controller = "Post" , Id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+

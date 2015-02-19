@@ -21,6 +21,11 @@ namespace SSProject.Models
             this.AspNetRoles = new HashSet<AspNetRole>();
             this.UserRelationships = new HashSet<UserRelationship>();
             this.UserRelationships1 = new HashSet<UserRelationship>();
+            this.Posts = new HashSet<Post>();
+            this.Posts1 = new HashSet<Post>();
+            this.AspNetRoles1 = new HashSet<AspNetRole>();
+            this.AspNetRoles2 = new HashSet<AspNetRole>();
+            this.AspNetRoles3 = new HashSet<AspNetRole>();
         }
     
         public string Id { get; set; }
@@ -48,5 +53,10 @@ namespace SSProject.Models
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
         public virtual ICollection<UserRelationship> UserRelationships { get; set; }
         public virtual ICollection<UserRelationship> UserRelationships1 { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Post> Posts1 { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles1 { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles2 { get; set; }
+        public virtual ICollection<AspNetRole> AspNetRoles3 { get; set; }
     }
 }

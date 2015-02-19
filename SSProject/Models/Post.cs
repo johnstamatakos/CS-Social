@@ -16,5 +16,11 @@ namespace SSProject.Models
     {
         public int Id { get; set; }
         public string Content { get; set; }
+        public byte[] PostDate { get; set; }
+        public string Poster { get; set; }
+        public string Receiver { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUser1 { get; set; }
     }
 }

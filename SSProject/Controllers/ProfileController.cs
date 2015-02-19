@@ -144,6 +144,22 @@ namespace SSProject.Controllers
             return PartialView("_friendsPartial", friends);
         }
 
+        public ActionResult getPost(string receiver)
+        {
+            var usersId = User.Identity.GetUserId();
+            try
+            {
+                var post = (from posts in db.Posts
+                            where posts.Receiver == receiver
+                            select posts.AspNetUser).ToList();
+                return PartialView("_postPartial", post);
+            }
+            catch(Exception e)
+            {
+                return PartialView("_postPartial", new {Controller = "Post", receiver = "0", poster = "0",content = "nothing"});
+            }
+        }
+
         private void setFacebookItems(string userId)
         {
 

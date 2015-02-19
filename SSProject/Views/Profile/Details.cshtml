@@ -111,15 +111,22 @@
     @Html.ActionLink("Back to List", "Index")
 </p>
 
-<p>
-    <!--Posting feature would go here:-->
+<div class="postPartial">
+
+
+    @Html.ActionLink("Create", "Create", new { Controller = "Post", receiver = Model.Id})
+
+
+    
+    @*@Html.Action("getPost");*@
+
+</div>
   
-</p>
 
 <div class="friendsPartial">
     @if (User.Identity.Name == Model.UserName)
     { 
-        @Html.Action("getFriendsList");
+        @Html.Action("getFriendsList", new { receiver = Model.Id });
     }
     else
     {
