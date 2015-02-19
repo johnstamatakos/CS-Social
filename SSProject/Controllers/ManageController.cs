@@ -223,11 +223,7 @@ namespace SSProject.Controllers
             return View();
         }
 
-        // GET: /Manage/ChangeInformation
-        public ActionResult ChangeInformation()
-        {
-            return View();
-        }
+    
 
         //
         // POST: /Manage/ChangePassword

@@ -58,25 +58,7 @@ namespace SSProject.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class ChangeInformation
-    {
-        [Required]
-        [DataType(DataType.Text)]
-        [Display(Name = "Computer")]
-        public string Computer { get; set; }
-
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
-        [DataType(DataType.Text)]
-        [Display(Name = "Computer Operating System")]
-        public string ComputerOS { get; set; }
-
-        [DataType(DataType.Text)]
-        [Display(Name = "Known Programming Languages")]
-        public string ProgrammingL { get; set; }
-
-    }
-
+  
     public class AddPhoneNumberViewModel
     {
         [Required]
