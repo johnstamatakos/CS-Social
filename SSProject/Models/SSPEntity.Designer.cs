@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\cynthia\Documents\GitHub\SSProject\SSProject\Models\SSPEntity.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\jstam397\Desktop\SSProject\SSProject\Models\SSPEntity.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

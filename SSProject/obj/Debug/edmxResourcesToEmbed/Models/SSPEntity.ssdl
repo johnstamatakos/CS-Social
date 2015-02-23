@@ -1,72 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SSPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="SSPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
   <EntityContainer Name="SSPModelStoreContainer">
-    <EntitySet Name="C__MigrationHistory" EntityType="SSPModel.Store.C__MigrationHistory" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetRoles" EntityType="SSPModel.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserClaims" EntityType="SSPModel.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserLogins" EntityType="SSPModel.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUsers" EntityType="SSPModel.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Posts" EntityType="SSPModel.Store.Posts" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserRelationships" EntityType="SSPModel.Store.UserRelationships" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserRoles" EntityType="SSPModel.Store.AspNetUserRoles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserRoles1" EntityType="SSPModel.Store.AspNetUserRoles1" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserRoles2" EntityType="SSPModel.Store.AspNetUserRoles2" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AspNetUserRoles3" EntityType="SSPModel.Store.AspNetUserRoles3" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="C__MigrationHistory" EntityType="SSPModel.Store.C__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="SSPModel.Store.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="SSPModel.Store.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="SSPModel.Store.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="SSPModel.Store.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posts" EntityType="SSPModel.Store.Posts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRelationships" EntityType="SSPModel.Store.UserRelationships" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="SSPModel.Store.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="SSPModel.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+      <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+      <End EntitySet="AspNetUserClaims" Role="AspNetUserClaims" />
     </AssociationSet>
     <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="SSPModel.Store.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+      <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+      <End EntitySet="AspNetUserLogins" Role="AspNetUserLogins" />
     </AssociationSet>
     <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles" Association="SSPModel.Store.FK_AspNetUserRoles_AspNetRoles">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+      <End EntitySet="AspNetRoles" Role="AspNetRoles" />
+      <End EntitySet="AspNetUserRoles" Role="AspNetUserRoles" />
     </AssociationSet>
     <AssociationSet Name="FK_AspNetUserRoles_AspNetUsers" Association="SSPModel.Store.FK_AspNetUserRoles_AspNetUsers">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+      <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+      <End EntitySet="AspNetUserRoles" Role="AspNetUserRoles" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserUserRelationship" Association="SSPModel.Store.AspNetUserUserRelationship">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="UserRelationship" EntitySet="UserRelationships" />
+      <End EntitySet="AspNetUsers" Role="AspNetUser" />
+      <End EntitySet="UserRelationships" Role="UserRelationship" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserUserRelationship1" Association="SSPModel.Store.AspNetUserUserRelationship1">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="UserRelationship" EntitySet="UserRelationships" />
+      <End EntitySet="AspNetUsers" Role="AspNetUser" />
+      <End EntitySet="UserRelationships" Role="UserRelationship" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserPost" Association="SSPModel.Store.AspNetUserPost">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="Post" EntitySet="Posts" />
+      <End EntitySet="AspNetUsers" Role="AspNetUser" />
+      <End EntitySet="Posts" Role="Post" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserPost1" Association="SSPModel.Store.AspNetUserPost1">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="Post" EntitySet="Posts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles1_AspNetRole" Association="SSPModel.Store.FK_AspNetUserRoles1_AspNetRole">
-      <End Role="AspNetRole" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles1" EntitySet="AspNetUserRoles1" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles1_AspNetUser" Association="SSPModel.Store.FK_AspNetUserRoles1_AspNetUser">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles1" EntitySet="AspNetUserRoles1" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles2_AspNetRole" Association="SSPModel.Store.FK_AspNetUserRoles2_AspNetRole">
-      <End Role="AspNetRole" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles2" EntitySet="AspNetUserRoles2" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles2_AspNetUser" Association="SSPModel.Store.FK_AspNetUserRoles2_AspNetUser">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles2" EntitySet="AspNetUserRoles2" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles3_AspNetRole" Association="SSPModel.Store.FK_AspNetUserRoles3_AspNetRole">
-      <End Role="AspNetRole" EntitySet="AspNetRoles" />
-      <End Role="AspNetUserRoles3" EntitySet="AspNetUserRoles3" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AspNetUserRoles3_AspNetUser" Association="SSPModel.Store.FK_AspNetUserRoles3_AspNetUser">
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserRoles3" EntitySet="AspNetUserRoles3" />
+      <End EntitySet="AspNetUsers" Role="AspNetUser" />
+      <End EntitySet="Posts" Role="Post" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
@@ -74,26 +47,26 @@
       <PropertyRef Name="MigrationId" />
       <PropertyRef Name="ContextKey" />
     </Key>
-    <Property Name="MigrationId" Type="nvarchar" Nullable="false" MaxLength="150" />
-    <Property Name="ContextKey" Type="nvarchar" Nullable="false" MaxLength="300" />
-    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-    <Property Name="ProductVersion" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="MigrationId" Nullable="false" MaxLength="150" Type="nvarchar" />
+    <Property Name="ContextKey" Nullable="false" MaxLength="300" Type="nvarchar" />
+    <Property Name="Model" Nullable="false" Type="varbinary(max)" />
+    <Property Name="ProductVersion" Nullable="false" MaxLength="32" Type="nvarchar" />
   </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Id" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="Name" Nullable="false" MaxLength="256" Type="nvarchar" />
   </EntityType>
   <EntityType Name="AspNetUserClaims">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="UserId" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="ClaimType" Nullable="true" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Nullable="true" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="AspNetUserLogins">
     <Key>
@@ -101,91 +74,67 @@
       <PropertyRef Name="ProviderKey" />
       <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LoginProvider" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="ProviderKey" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="UserId" Nullable="false" MaxLength="50" Type="nvarchar" />
   </EntityType>
   <EntityType Name="AspNetUsers">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
-    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-    <Property Name="LockoutEndDateUtc" Type="datetime" Nullable="true" />
-    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
-    <Property Name="Computer" Type="varchar(max)" Nullable="true" />
-    <Property Name="ComputerOS" Type="varchar(max)" Nullable="true" />
-    <Property Name="ProgrammingL" Type="varchar(max)" Nullable="true" />
-    <Property Name="PhoneM" Type="varchar(max)" Nullable="true" />
-    <Property Name="PhoneOS" Type="varchar(max)" Nullable="true" />
-    <Property Name="JobTitle" Type="varchar(max)" Nullable="true" />
-    <Property Name="ProfilePicture" Type="varchar(max)" Nullable="true" />
+    <Property Name="Id" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Email" Nullable="true" MaxLength="256" Type="nvarchar" />
+    <Property Name="EmailConfirmed" Nullable="false" Type="bit" />
+    <Property Name="PasswordHash" Nullable="true" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Nullable="true" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Nullable="true" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Nullable="false" Type="bit" />
+    <Property Name="TwoFactorEnabled" Nullable="false" Type="bit" />
+    <Property Name="LockoutEndDateUtc" Nullable="true" Type="datetime" />
+    <Property Name="LockoutEnabled" Nullable="false" Type="bit" />
+    <Property Name="AccessFailedCount" Nullable="false" Type="int" />
+    <Property Name="UserName" Nullable="false" MaxLength="256" Type="nvarchar" />
+    <Property Name="Computer" Nullable="true" Type="varchar(max)" />
+    <Property Name="ComputerOS" Nullable="true" Type="varchar(max)" />
+    <Property Name="ProgrammingL" Nullable="true" Type="varchar(max)" />
+    <Property Name="PhoneM" Nullable="true" Type="varchar(max)" />
+    <Property Name="PhoneOS" Nullable="true" Type="varchar(max)" />
+    <Property Name="JobTitle" Nullable="true" Type="varchar(max)" />
+    <Property Name="ProfilePicture" Nullable="true" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Posts">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Content" Type="varchar(max)" Nullable="true" />
-    <Property Name="PostDate" Type="binary" StoreGeneratedPattern="Computed" Nullable="true" MaxLength="8" />
-    <Property Name="Poster" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Receiver" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Id" Nullable="false" Type="int" />
+    <Property Name="Content" Nullable="true" Type="varchar(max)" />
+    <Property Name="PostDate" Nullable="true" MaxLength="8" StoreGeneratedPattern="Computed" Type="binary" />
+    <Property Name="Poster" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Receiver" Nullable="false" MaxLength="50" Type="nvarchar" />
   </EntityType>
   <EntityType Name="UserRelationships">
     <Key>
       <PropertyRef Name="RelationshipId" />
     </Key>
-    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="FriendId" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Status" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="AcceptedDate" Type="datetime" Nullable="true" />
-    <Property Name="RelationshipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="FriendId" Nullable="false" MaxLength="50" Type="nvarchar" />
+    <Property Name="Status" Nullable="true" MaxLength="50" Type="nvarchar" />
+    <Property Name="AcceptedDate" Nullable="true" Type="datetime" />
+    <Property Name="RelationshipId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
   </EntityType>
   <EntityType Name="AspNetUserRoles">
     <Key>
       <PropertyRef Name="AspNetRoles_Id" />
       <PropertyRef Name="AspNetUsers_Id" />
     </Key>
-    <Property Name="AspNetRoles_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="AspNetUsers_Id" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="AspNetUserRoles1">
-    <Key>
-      <PropertyRef Name="AspNetRoles1_Id" />
-      <PropertyRef Name="AspNetUsers1_Id" />
-    </Key>
-    <Property Name="AspNetRoles1_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="AspNetUsers1_Id" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="AspNetUserRoles2">
-    <Key>
-      <PropertyRef Name="AspNetRoles2_Id" />
-      <PropertyRef Name="AspNetUsers2_Id" />
-    </Key>
-    <Property Name="AspNetRoles2_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="AspNetUsers2_Id" Type="nvarchar" Nullable="false" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="AspNetUserRoles3">
-    <Key>
-      <PropertyRef Name="AspNetRoles3_Id" />
-      <PropertyRef Name="AspNetUsers3_Id" />
-    </Key>
-    <Property Name="AspNetRoles3_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="AspNetUsers3_Id" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AspNetRoles_Id" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="AspNetUsers_Id" Nullable="false" MaxLength="50" Type="nvarchar" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="SSPModel.Store.AspNetUsers" Multiplicity="1">
+    <End Type="SSPModel.Store.AspNetUsers" Multiplicity="1" Role="AspNetUsers">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="AspNetUserClaims" Type="SSPModel.Store.AspNetUserClaims" Multiplicity="*" />
+    <End Type="SSPModel.Store.AspNetUserClaims" Multiplicity="*" Role="AspNetUserClaims" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
@@ -196,10 +145,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="SSPModel.Store.AspNetUsers" Multiplicity="1">
+    <End Type="SSPModel.Store.AspNetUsers" Multiplicity="1" Role="AspNetUsers">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="AspNetUserLogins" Type="SSPModel.Store.AspNetUserLogins" Multiplicity="*" />
+    <End Type="SSPModel.Store.AspNetUserLogins" Multiplicity="*" Role="AspNetUserLogins" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
@@ -210,8 +159,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="AspNetUserUserRelationship">
-    <End Role="AspNetUser" Type="SSPModel.Store.AspNetUsers" Multiplicity="1" />
-    <End Role="UserRelationship" Type="SSPModel.Store.UserRelationships" Multiplicity="*" />
+    <End Type="SSPModel.Store.AspNetUsers" Multiplicity="1" Role="AspNetUser" />
+    <End Type="SSPModel.Store.UserRelationships" Multiplicity="*" Role="UserRelationship" />
     <ReferentialConstraint>
       <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
@@ -222,8 +171,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="AspNetUserUserRelationship1">
-    <End Role="AspNetUser" Type="SSPModel.Store.AspNetUsers" Multiplicity="1" />
-    <End Role="UserRelationship" Type="SSPModel.Store.UserRelationships" Multiplicity="*" />
+    <End Type="SSPModel.Store.AspNetUsers" Multiplicity="1" Role="AspNetUser" />
+    <End Type="SSPModel.Store.UserRelationships" Multiplicity="*" Role="UserRelationship" />
     <ReferentialConstraint>
       <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
@@ -234,8 +183,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="AspNetUserPost">
-    <End Role="AspNetUser" Type="SSPModel.Store.AspNetUsers" Multiplicity="1" />
-    <End Role="Post" Type="SSPModel.Store.Posts" Multiplicity="*" />
+    <End Type="SSPModel.Store.AspNetUsers" Multiplicity="1" Role="AspNetUser" />
+    <End Type="SSPModel.Store.Posts" Multiplicity="*" Role="Post" />
     <ReferentialConstraint>
       <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
@@ -246,8 +195,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="AspNetUserPost1">
-    <End Role="AspNetUser" Type="SSPModel.Store.AspNetUsers" Multiplicity="1" />
-    <End Role="Post" Type="SSPModel.Store.Posts" Multiplicity="*" />
+    <End Type="SSPModel.Store.AspNetUsers" Multiplicity="1" Role="AspNetUser" />
+    <End Type="SSPModel.Store.Posts" Multiplicity="*" Role="Post" />
     <ReferentialConstraint>
       <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
@@ -258,8 +207,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_AspNetUserRoles_AspNetRoles">
-    <End Role="AspNetRoles" Type="SSPModel.Store.AspNetRoles" Multiplicity="1" />
-    <End Role="AspNetUserRoles" Type="SSPModel.Store.AspNetUserRoles" Multiplicity="*" />
+    <End Type="SSPModel.Store.AspNetRoles" Multiplicity="1" Role="AspNetRoles" />
+    <End Type="SSPModel.Store.AspNetUserRoles" Multiplicity="*" Role="AspNetUserRoles" />
     <ReferentialConstraint>
       <Principal Role="AspNetRoles">
         <PropertyRef Name="Id" />
@@ -270,86 +219,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_AspNetUserRoles_AspNetUsers">
-    <End Role="AspNetUserRoles" Type="SSPModel.Store.AspNetUserRoles" Multiplicity="*" />
-    <End Role="AspNetUsers" Type="SSPModel.Store.AspNetUsers" Multiplicity="1" />
+    <End Type="SSPModel.Store.AspNetUserRoles" Multiplicity="*" Role="AspNetUserRoles" />
+    <End Type="SSPModel.Store.AspNetUsers" Multiplicity="1" Role="AspNetUsers" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="AspNetUserRoles">
         <PropertyRef Name="AspNetUsers_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles1_AspNetRole">
-    <End Role="AspNetRole" Type="SSPModel.Store.AspNetRoles" Multiplicity="1" />
-    <End Role="AspNetUserRoles1" Type="SSPModel.Store.AspNetUserRoles1" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles1">
-        <PropertyRef Name="AspNetRoles1_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles1_AspNetUser">
-    <End Role="AspNetUserRoles1" Type="SSPModel.Store.AspNetUserRoles1" Multiplicity="*" />
-    <End Role="AspNetUser" Type="SSPModel.Store.AspNetUsers" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles1">
-        <PropertyRef Name="AspNetUsers1_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles2_AspNetRole">
-    <End Role="AspNetRole" Type="SSPModel.Store.AspNetRoles" Multiplicity="1" />
-    <End Role="AspNetUserRoles2" Type="SSPModel.Store.AspNetUserRoles2" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles2">
-        <PropertyRef Name="AspNetRoles2_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles2_AspNetUser">
-    <End Role="AspNetUserRoles2" Type="SSPModel.Store.AspNetUserRoles2" Multiplicity="*" />
-    <End Role="AspNetUser" Type="SSPModel.Store.AspNetUsers" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles2">
-        <PropertyRef Name="AspNetUsers2_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles3_AspNetRole">
-    <End Role="AspNetRole" Type="SSPModel.Store.AspNetRoles" Multiplicity="1" />
-    <End Role="AspNetUserRoles3" Type="SSPModel.Store.AspNetUserRoles3" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles3">
-        <PropertyRef Name="AspNetRoles3_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AspNetUserRoles3_AspNetUser">
-    <End Role="AspNetUserRoles3" Type="SSPModel.Store.AspNetUserRoles3" Multiplicity="*" />
-    <End Role="AspNetUser" Type="SSPModel.Store.AspNetUsers" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserRoles3">
-        <PropertyRef Name="AspNetUsers3_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

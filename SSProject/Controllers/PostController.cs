@@ -40,8 +40,8 @@ namespace SSProject.Controllers
         public ActionResult Create(string receiver)
         {
             var poster = User.Identity.GetUserId();
-            var content = fc[0].ToString();
-            db.Posts.Add(new Post { Receiver = receiver, Poster = poster, Content = content});
+            var content = "test";
+            db.Posts.Add(new Post { Receiver = receiver, Poster = poster, Content = content });
             db.SaveChanges();
             return RedirectToAction("Details", "Profile", new { id = receiver });
         }
@@ -51,7 +51,7 @@ namespace SSProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Content")] Post post)
+        public ActionResult Create([Bind(Include = "Poster, Receiver, Content")] Post post)
         {
             if (ModelState.IsValid)
             {

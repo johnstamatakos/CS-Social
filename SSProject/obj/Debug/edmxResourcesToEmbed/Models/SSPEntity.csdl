@@ -14,12 +14,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
     <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
-    <NavigationProperty Name="AspNetUsers1" Relationship="SSPModel.AspNetUserRoles1" FromRole="AspNetRole" ToRole="AspNetUser" />
-    <NavigationProperty Name="AspNetUsers2" Relationship="SSPModel.AspNetUserRoles2" FromRole="AspNetRole" ToRole="AspNetUser" />
-    <NavigationProperty Name="AspNetUsers3" Relationship="SSPModel.AspNetUserRoles3" FromRole="AspNetRole" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="AspNetUserClaim">
     <Key>
@@ -72,9 +69,6 @@
     <Property Name="ProfilePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Posts" Relationship="SSPModel.AspNetUserPost" FromRole="AspNetUser" ToRole="Post" />
     <NavigationProperty Name="Posts1" Relationship="SSPModel.AspNetUserPost1" FromRole="AspNetUser" ToRole="Post" />
-    <NavigationProperty Name="AspNetRoles1" Relationship="SSPModel.AspNetUserRoles1" FromRole="AspNetUser" ToRole="AspNetRole" />
-    <NavigationProperty Name="AspNetRoles2" Relationship="SSPModel.AspNetUserRoles2" FromRole="AspNetUser" ToRole="AspNetRole" />
-    <NavigationProperty Name="AspNetRoles3" Relationship="SSPModel.AspNetUserRoles3" FromRole="AspNetUser" ToRole="AspNetRole" />
   </EntityType>
   <EntityType Name="Post">
     <Key>
@@ -129,8 +123,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="AspNetUserRoles">
-    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
-    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+    <End Type="Self.AspNetRole" Multiplicity="*" Role="AspNetRoles" />
+    <End Type="Self.AspNetUser" Multiplicity="*" Role="AspNetUsers" />
   </Association>
   <EntityContainer Name="SSPEntity" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
@@ -149,8 +143,8 @@
       <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End EntitySet="AspNetRoles" Role="AspNetRoles" />
+      <End EntitySet="AspNetUsers" Role="AspNetUsers" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserUserRelationship" Association="SSPModel.AspNetUserUserRelationship">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
@@ -167,18 +161,6 @@
     <AssociationSet Name="AspNetUserPost1" Association="SSPModel.AspNetUserPost1">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="Post" EntitySet="Posts" />
-    </AssociationSet>
-    <AssociationSet Name="AspNetUserRoles1" Association="SSPModel.AspNetUserRoles1">
-      <End Role="AspNetRole" EntitySet="AspNetRoles" />
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-    </AssociationSet>
-    <AssociationSet Name="AspNetUserRoles2" Association="SSPModel.AspNetUserRoles2">
-      <End Role="AspNetRole" EntitySet="AspNetRoles" />
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
-    </AssociationSet>
-    <AssociationSet Name="AspNetUserRoles3" Association="SSPModel.AspNetUserRoles3">
-      <End Role="AspNetRole" EntitySet="AspNetRoles" />
-      <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
   </EntityContainer>
   <Association Name="AspNetUserUserRelationship">
@@ -228,17 +210,5 @@
         <PropertyRef Name="Receiver" />
       </Dependent>
     </ReferentialConstraint>
-  </Association>
-  <Association Name="AspNetUserRoles1">
-    <End Type="SSPModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
-    <End Type="SSPModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
-  </Association>
-  <Association Name="AspNetUserRoles2">
-    <End Type="SSPModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
-    <End Type="SSPModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
-  </Association>
-  <Association Name="AspNetUserRoles3">
-    <End Type="SSPModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
-    <End Type="SSPModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
   </Association>
 </Schema>
