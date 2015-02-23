@@ -106,7 +106,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" Type="int" />
+    <Property Name="Id" Nullable="false" Type="int" StoreGeneratedPattern="Identity" />
     <Property Name="Content" Nullable="true" Type="varchar(max)" />
     <Property Name="PostDate" Nullable="true" MaxLength="8" StoreGeneratedPattern="Computed" Type="binary" />
     <Property Name="Poster" Nullable="false" MaxLength="50" Type="nvarchar" />

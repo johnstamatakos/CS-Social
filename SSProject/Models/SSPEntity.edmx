@@ -111,7 +111,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Nullable="false" Type="int" />
+    <Property Name="Id" Nullable="false" Type="int" StoreGeneratedPattern="Identity" />
     <Property Name="Content" Nullable="true" Type="varchar(max)" />
     <Property Name="PostDate" Nullable="true" MaxLength="8" StoreGeneratedPattern="Computed" Type="binary" />
     <Property Name="Poster" Nullable="false" MaxLength="50" Type="nvarchar" />
@@ -313,13 +313,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="PostDate" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="PostDate" Type="Binary" annotation:StoreGeneratedPattern="Computed" FixedLength="true" MaxLength="8" />
           <NavigationProperty Name="AspNetUser" Relationship="SSPModel.AspNetUserPost" FromRole="Post" ToRole="AspNetUser" />
-          <Property Name="Poster" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUser1" Relationship="SSPModel.AspNetUserPost1" FromRole="Post" ToRole="AspNetUser" />
-          <Property Name="Receiver" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="UserRelationship">
           <Key>

@@ -41,7 +41,7 @@ namespace SSProject.Controllers
         {
             var poster = User.Identity.GetUserId();
             var content = "test";
-            db.Posts.Add(new Post { Receiver = receiver, Poster = poster, Content = content });
+            db.Posts.Add(new Post { Receiver = receiver, Poster = poster, Content = content});
             db.SaveChanges();
             return RedirectToAction("Details", "Profile", new { id = receiver });
         }
