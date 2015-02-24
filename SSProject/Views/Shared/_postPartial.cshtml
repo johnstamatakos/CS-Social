@@ -25,28 +25,31 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                <a href="/profile/details/@item.AspNetUser.Id"><img class="rotate userImageSmall" src="@item.AspNetUser.ProfilePicture" /></a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AspNetUser1.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { Controller = "Post" , Id = item.Id }, null)
-            </td>
-        </tr>
+    @if (Model != null)
+    { 
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/profile/details/@item.AspNetUser.Id"><img class="rotate userImageSmall" src="@item.AspNetUser.ProfilePicture" /></a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AspNetUser1.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { Controller = "Post" , Id = item.Id }, null)
+                </td>
+            </tr>
+        }
     }
 
 </table>

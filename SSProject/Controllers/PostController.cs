@@ -50,13 +50,13 @@ namespace SSProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Poster, Receiver, Content")] Post post)
+        public ActionResult Create([Bind(Include = "Poster, Receiver, Content")] Post post, string receiver)
         {
             if (ModelState.IsValid)
             {
                 db.Posts.Add(post);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Profile", new { id = receiver });
             }
 
             return View(post);
@@ -116,7 +116,7 @@ namespace SSProject.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Profile", new { id = id });
         }
 
         protected override void Dispose(bool disposing)
