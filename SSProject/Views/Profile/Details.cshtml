@@ -115,10 +115,18 @@
 
 
     @Html.ActionLink("Create", "Create", new { Controller = "Post", receiver = Model.Id})
-
-
     
-    @Html.Action("getPost", new { receiver = Model.Id });
+   
+    @using (Html.BeginForm())
+    {
+        @Html.TextArea("Name");
+        <br>
+        <input type="submit" value="Post">
+    }
+    
+   
+    
+   @* @Html.Action("getPost", new { receiver = Model.Id });*@
 
 </div>
   
