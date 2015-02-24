@@ -112,21 +112,25 @@
 </p>
 
 <div class="postPartial">
-
-
-    @Html.ActionLink("Create", "Create", new { Controller = "Post", receiver = Model.Id})
     
    
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create", "Post"))
     {
-        @Html.TextArea("Name");
+        @Html.AntiForgeryToken()
+        @Html.Hidden("receiver", Model.Id)
+        @Html.Hidden("poster", User.Identity.GetUserId())
+        @Html.TextArea("content");
         <br>
         <input type="submit" value="Post">
     }
+
+
+    @Html.ActionLink("Create", "Create", new { Controller = "Post", receiver = Model.Id})
+
+
     
    
-    
-   @* @Html.Action("getPost", new { receiver = Model.Id });*@
+   @Html.Action("getPost", new { receiver = Model.Id });
 
 </div>
   
@@ -134,7 +138,7 @@
 <div class="friendsPartial">
     @if (User.Identity.Name == Model.UserName)
     { 
-        @Html.Action("getFriendsList", new { receiver = Model.Id });
+        @Html.Action("getFriendsList");
     }
     else
     {

@@ -147,10 +147,12 @@ namespace SSProject.Controllers
         public ActionResult getPost(string receiver)
         {
             var usersId = User.Identity.GetUserId();
-                var post = (from posts in db.Posts
-                            where posts.Receiver == receiver
-                            select posts.AspNetUser).ToList();
-                return PartialView("_postPartial", post);
+
+                var userpost = (from post in db.Posts
+                        join user in db.AspNetUsers on post.Receiver equals user.Id
+                       where user.Id == receiver
+                       select user.Posts1).FirstOrDefault();
+                return PartialView("_postPartial", userpost);
         }
 
         private void setFacebookItems(string userId)

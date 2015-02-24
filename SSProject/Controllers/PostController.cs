@@ -37,10 +37,9 @@ namespace SSProject.Controllers
         }
 
         // GET: Post/Create
-        public ActionResult Create(string receiver)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(string receiver, string poster, string content)
         {
-            var poster = User.Identity.GetUserId();
-            var content = "test";
             db.Posts.Add(new Post { Receiver = receiver, Poster = poster, Content = content});
             db.SaveChanges();
             return RedirectToAction("Details", "Profile", new { id = receiver });
