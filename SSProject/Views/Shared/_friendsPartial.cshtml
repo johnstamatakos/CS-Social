@@ -11,13 +11,7 @@
             Picture
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th></th>
     </tr>
@@ -29,16 +23,12 @@
                 <a href="/profile/details/@item.Id"><img class="rotate userImageSmall" src="@item.ProfilePicture" /></a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
+                @if (item.Id != User.Identity.GetUserId()) { 
                 @Html.ActionLink("Remove Friend", "Delete", new { Controller = "Friends", Id = item.Id }, null)
+                }
             </td>
         </tr>
     }

@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color:#D9D9D9;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -16,16 +17,103 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.navbar {
+    background-color:#0697CE;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color:white!important;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    color:#4A4A4A!important;
+    -webkit-animation: navItem 0.5s linear 0s 1 normal;
+        -moz-animation: navItem 0.5s linear 0s 1 normal;
+        -ms-animation: navItem 0.5s linear 0s 1 normal;
+        -o-animation: navItem 0.5s linear 0s 1 normal;
+        animation: navItem 0.5s linear 0s 1 normal;
+}
+.navbar-inverse .navbar-brand {
+    color:white!important;
+}
+    .navbar-inverse .navbar-brand:hover {
+    color:#4A4A4A!important;
+        -webkit-animation: navItem 0.5s linear 0s 1 normal;
+        -moz-animation: navItem 0.5s linear 0s 1 normal;
+        -ms-animation: navItem 0.5s linear 0s 1 normal;
+        -o-animation: navItem 0.5s linear 0s 1 normal;
+        animation: navItem 0.5s linear 0s 1 normal;
+}
+
+
+/* PROFILE PAGE */
+
+.profileDetails {
+    
+}
+
+.friendDetails {
+
+}
+
+.userPosts {
+    text-align:center;
+    margin-top:50px;
+}
+
+.postForm {
+    text-align:center;
+}
+
+.postTextArea{
+    width:75%;
+    height:100px;
+}
+
+.postInput {
+    margin-top:20px;
+    width:30%;
+    padding:10px;
+}
+
+.postContainer {
+    width:100%;
+    padding:20px;
+}
+
+.deletePost {
+    text-align:right;
+    padding:5px;
+}
+
+.postHeader {
+    background-color:#4BAFD5;
+    color:white;
+    padding:5px;
+    text-align:left;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border-top:2px solid black;
+    border-left:2px solid black;
+    border-right:2px solid black;
+}
+
+.postContent {
+    border-bottom:2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px;
+    text-align:left;
+    padding:20px;
+    background-color:white;
 }
 
 .userImage {
-    height:100px;
+    margin-top:50px;
+    height:200px;
     border-radius:50%;
+}
+.userImageContainer {
+    text-align:center;
 }
 
 .userImageSmall {
@@ -40,6 +128,9 @@ textarea {
         animation: profilePictureSpin 1s linear 0s infinite normal;
     }
 
+
+
+/*Animations*/
 @-webkit-keyframes profilePictureSpin {
   0%   { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
@@ -57,8 +148,90 @@ textarea {
   100% { -ms-transform: rotate(360deg); }
 }
 @keyframes profilePictureSpin {
-  0%   { transform:rotate(0deg); }
-  100% { transform:rotate(360deg); }
+  0%   { -ms-transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes navItem {
+    0% {
+        color:whitesmoke;
+        padding-top:15px;
+    }
+    25%, 75% {
+        padding-top:17px;
+    }
+    50% {
+        padding-top:20px;
+    }
+    100% {
+        color:#4A4A4A;
+        padding-top:15px;
+    }
+}
+
+@-moz-keyframes navItem {
+      0% {
+        color:whitesmoke;
+        padding-top:15px;
+    }
+    25%, 75% {
+        padding-top:17px;
+    }
+    50% {
+        padding-top:20px;
+    }
+    100% {
+        color:#4A4A4A;
+        padding-top:15px;
+    }
+}
+@-o-keyframes navItem {
+    0% {
+        color:whitesmoke;
+        padding-top:15px;
+    }
+    25%, 75% {
+        padding-top:17px;
+    }
+    50% {
+        padding-top:20px;
+    }
+    100% {
+        color:#4A4A4A;
+        padding-top:15px;
+    }
+}
+@-ms-keyframes navItem {
+    0% {
+        color:whitesmoke;
+        padding-top:15px;
+    }
+    25%, 75% {
+        padding-top:17px;
+    }
+    50% {
+        padding-top:20px;
+    }
+    100% {
+        color:#4A4A4A;
+        padding-top:15px;
+    }
+}
+@keyframes navItem {
+    0% {
+        color:whitesmoke;
+        padding-top:15px;
+    }
+    25%, 75% {
+        padding-top:17px;
+    }
+    50% {
+        padding-top:20px;
+    }
+    100% {
+        color:#4A4A4A;
+        padding-top:15px;
+    }
 }
 
 

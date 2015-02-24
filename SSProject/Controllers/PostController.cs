@@ -116,7 +116,7 @@ namespace SSProject.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
-            return RedirectToAction("Details", "Profile", new { id = id });
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

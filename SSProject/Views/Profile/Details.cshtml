@@ -2,12 +2,12 @@
 @using Microsoft.AspNet.Identity;
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Model.UserName;
 }
 
 <div class="container">
     <div class="row topRow">
-        <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-md-12 userImageContainer">
             <img class="userImage" src="@Model.ProfilePicture" />
         </div>
     </div>
@@ -21,128 +21,121 @@
     </div>
 </div>
 
-<h2>Details</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 profileDetails">
+            <h2>About @Model.UserName</h2>
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
 
-<div>
-    <h4>@Html.DisplayNameFor(model => model.UserName)</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Computer)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Computer)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Computer)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Computer)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ComputerOS)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ComputerOS)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ComputerOS)
 
-        <dd>
-            @Html.DisplayFor(model => model.ComputerOS)
+                    </dd>
 
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ProgrammingL)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProgrammingL)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ProgrammingL)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProgrammingL)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PhoneM)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneM)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PhoneM)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneM)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PhoneOS)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneOS)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PhoneOS)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneOS)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.JobTitle)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.JobTitle)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.JobTitle)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.JobTitle)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PhoneNumber)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.UserName)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
+                </dl>
+            </div>
+            <p>
+                @if (User.Identity.Name == Model.UserName)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+                }
+            </p>
+        </div>
+        <div class="col-md-6 friendDetails">
+            <div class="friendsPartial">
 
-    </dl>
+                    @Html.Action("getFriendsList", new { id = Model.Id });
+
+            </div>
+        </div>
+
+    </div>
 </div>
-<p>
-   @if (User.Identity.Name == Model.UserName)
-   { 
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
-   }
-    
-    @Html.ActionLink("Back to List", "Index")
-</p>
 
-<div class="postPartial">
-    
-   
-    @using (Html.BeginForm("Create", "Post"))
-    {
-        @Html.AntiForgeryToken()
-        @Html.Hidden("receiver", Model.Id)
-        @Html.Hidden("poster", User.Identity.GetUserId())
-        @Html.TextArea("content");
-        <br>
-        <input type="submit" value="Post">
-    }
+<div class="container-fluid">
+    <div class="postPartial userPosts">
 
+        @using (Html.BeginForm("Create", "Post", new { @class = "postForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("receiver", Model.Id)
+            @Html.Hidden("poster", User.Identity.GetUserId())
+            @Html.TextArea("content", new { @class = "postTextArea" });
+            <br />
+            <input type="submit" value="Post" class="postInput btn btn-success">
+        }
 
-    @Html.ActionLink("Create", "Create", new { Controller = "Post", receiver = Model.Id})
+        @Html.Action("getPost", new { receiver = Model.Id });
 
-
-    
-   
-   @Html.Action("getPost", new { receiver = Model.Id });
-
+    </div>
 </div>
   
 
-<div class="friendsPartial">
-    @if (User.Identity.Name == Model.UserName)
-    { 
-        @Html.Action("getFriendsList");
-    }
-    else
-    {
-        
-    }
-
-</div>

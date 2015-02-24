@@ -5,52 +5,24 @@
 
 <br />
 
-<table class="table">
-    <tr>
-        <th>
-            Picture
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Receiver)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Poster)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th></th>
-    </tr>
-
     @if (Model != null)
-    { 
+    {
         foreach (var item in Model)
         {
-            <tr>
-                <td>
+            <div class="postContainer col-md-12">
+                <div class="postHeader">
                     <a href="/profile/details/@item.AspNetUser.Id"><img class="rotate userImageSmall" src="@item.AspNetUser.ProfilePicture" /></a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AspNetUser.UserName)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.AspNetUser1.UserName)
-                </td>
-                <td>
+                </div>
+                <div class="postContent">
                     @Html.DisplayFor(modelItem => item.Content)
-                </td>
-                <td>
-                    @Html.ActionLink("Delete", "Delete", new { Controller = "Post" , Id = item.Id }, null)
-                </td>
-            </tr>
+                </div>
+                <div class="deletePost">
+                    @Html.ActionLink("Delete", "Delete", new { Controller = "Post", Id = item.Id }, null)
+                </div>
+            </div>
         }
     }
 
-</table>
+
 

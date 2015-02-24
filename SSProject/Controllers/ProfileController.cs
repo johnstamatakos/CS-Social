@@ -132,13 +132,13 @@ namespace SSProject.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult getFriendsList()
+        public ActionResult getFriendsList(string id)
         {
             var usersId = User.Identity.GetUserId();
 
             var friends =(from user in db.AspNetUsers
                        join relation in db.UserRelationships on user.Id equals relation.UserId
-                       where relation.UserId == usersId
+                       where relation.UserId == id
                        select relation.AspNetUser).ToList();
 
             return PartialView("_friendsPartial", friends);
@@ -146,7 +146,6 @@ namespace SSProject.Controllers
 
         public ActionResult getPost(string receiver)
         {
-            var usersId = User.Identity.GetUserId();
 
                 var userpost = (from post in db.Posts
                         join user in db.AspNetUsers on post.Receiver equals user.Id
