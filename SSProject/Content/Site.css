@@ -108,12 +108,15 @@
 }
 
 .userImage {
-    margin-top:50px;
-    height:200px;
+    margin:10px;
+    height:275px;
     border-radius:50%;
 }
 .userImageContainer {
     text-align:center;
+    background: url("~/Content/images/profileImage.jpg") center no-repeat;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
 }
 
 .userImageSmall {
