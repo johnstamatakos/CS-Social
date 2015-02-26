@@ -222,6 +222,8 @@ C:\Users\stamatj\Documents\SSProject\SSProject\bin\Facebook.dll
 C:\Users\stamatj\Documents\SSProject\SSProject\bin\Facebook.xml
 C:\Users\Erik.Erik-Laptop.000\Documents\Senior Sem\SSProject\SSProject\bin\Facebook.dll
 C:\Users\Erik.Erik-Laptop.000\Documents\Senior Sem\SSProject\SSProject\bin\Facebook.xml
+C:\Users\jstam397\Desktop\SSProject\SSProject\bin\Facebook.dll
+C:\Users\jstam397\Desktop\SSProject\SSProject\bin\Facebook.xml
 C:\Users\cynthia\Documents\GitHub\SSProject\SSProject\bin\SSProject.dll.config
 C:\Users\cynthia\Documents\GitHub\SSProject\SSProject\bin\SSProject.dll
 C:\Users\cynthia\Documents\GitHub\SSProject\SSProject\bin\SSProject.pdb
@@ -279,5 +281,3 @@ C:\Users\cynthia\Documents\GitHub\SSProject\SSProject\bin\Microsoft.Owin.Securit
 C:\Users\cynthia\Documents\GitHub\SSProject\SSProject\obj\Debug\SSProject.csprojResolveAssemblyReference.cache
 C:\Users\cynthia\Documents\GitHub\SSProject\SSProject\obj\Debug\SSProject.dll
 C:\Users\cynthia\Documents\GitHub\SSProject\SSProject\obj\Debug\SSProject.pdb
-C:\Users\jstam397\Desktop\SSProject\SSProject\bin\Facebook.dll
-C:\Users\jstam397\Desktop\SSProject\SSProject\bin\Facebook.xml
