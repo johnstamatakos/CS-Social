@@ -139,6 +139,7 @@ namespace SSProject.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            
             return View();
         }
 
@@ -163,7 +164,9 @@ namespace SSProject.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+
+                    //Code added to redirect user to the edit page immediately after registering to the Site.
+                    return RedirectToAction("Edit/" + user.Id, "Profile");
                 }
                 AddErrors(result);
             }
@@ -356,7 +359,8 @@ namespace SSProject.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Manage");
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                return RedirectToAction("Edit/" + user.Id, "Profile");
             }
 
             if (ModelState.IsValid)
@@ -376,6 +380,7 @@ namespace SSProject.Controllers
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToLocal(returnUrl);
+                        
                     }
                 }
                 AddErrors(result);

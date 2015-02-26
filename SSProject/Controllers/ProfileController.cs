@@ -22,6 +22,20 @@ namespace SSProject.Controllers
             return View(db.AspNetUsers.ToList());
         }
 
+
+        //Class added to redirect user to the edit page immediately after registering to the Site - called by Account controller
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Profile()
+        {
+            if (ModelState.IsValid)
+            {                
+                var user = User.Identity.GetUserId();
+                return RedirectToAction("Profile/");
+            }
+            return View();
+        }
+
         // GET: Profile/Details/5
         public ActionResult Details(string id)
         {
@@ -135,7 +149,7 @@ namespace SSProject.Controllers
         public ActionResult getFriendsList(string id)
         {
             var usersId = User.Identity.GetUserId();
-
+            
             var friends =(from user in db.AspNetUsers
                        join relation in db.UserRelationships on user.Id equals relation.UserId
                        where relation.UserId == id
