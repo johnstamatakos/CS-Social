@@ -218,6 +218,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\blueTexture.jpg" />
+    <Content Include="Content\images\facebook.png" />
     <Content Include="Content\images\profilePictures\default.jpg" />
     <Content Include="Content\images\techbook.png" />
     <Content Include="favicon.ico" />
@@ -243,6 +244,8 @@
       <DependentUpon>SSPEntity.edmx</DependentUpon>
       <LastGenOutput>SSPEntity.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\TechBook.pubxml" />
+    <None Include="Properties\PublishProfiles\TechBookMario.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
